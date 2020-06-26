@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Launcher</title>
+<script src="launcher.js"></script>
+<link rel="stylesheet" type="text/css" href="launcher.css">
+</head>
+<body>
+<div id="header">
+Launcher
+</div>
+<div id="content">
+
+    
+        <fieldset>
+          <legend>Personalia:</legend>
+          <label for="buyingPrice">Buying Price:</label><br>
+          <input type="text" id="buyingPrice" name="buyingPrice" value="0.00"><br>
+          <label for="sellingPrice">Selling Price:</label><br>
+          <input type="text" id="sellingPrice" name="sellingPrice" value="0.00"><br><br>
+          <input type="submit" value="Submit" onclick="calculate()">
+          <span id="difference"></span>
+        </fieldset>
+    
+</div>
+<div id="footer">
+version 0.1
+</div>
+</body>
+</html>
