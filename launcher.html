@@ -1,30 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Launcher</title>
-<script src="launcher.js"></script>
-<link rel="stylesheet" type="text/css" href="launcher.css">
+    <title>Swing Trading Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" rel="stylesheet">
 </head>
-<body>
-<div id="header">
-Launcher
+<body data-bs-theme="dark">
+<div class="page p-4">
+    <div class="page-wrapper">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <h2 class="page-title">
+                        Calculator </h2>
+                    <div class="page-pretitle">
+                        Position Sizing
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="card">
+                <h3 class="card-header">
+                    Risk To Reward </h3>
+                <div class="card-body p-1">
+                    <div class="col">
+                        <div class="p-2">
+                            <label class="form-label">Account Size</label>
+                            <input class="form-control" id="accountSize" placeholder="0.00" type="number"
+                                   type="Number" value="15000">
+                        </div>
+                        <div class="p-2">
+                            <label class="form-label">Entry Price</label>
+                            <input class="form-control" id="entryPrice" placeholder="0.00" type="number"
+                                   type="Number" value="170">
+                        </div>
+                        <div class="p-2">
+                            <label class="form-label">Stop Loss Price</label>
+                            <input class="form-control" id="stoplossPrice" placeholder="0.00" type="number" value="164">
+                        </div>
+                        <div class="p-2">
+                            <label class="form-label">Take Profit Price</label>
+                            <input class="form-control" id="takeProfitPrice" placeholder="0.00" type="number"
+                                   type="Number" value="182">
+                        </div>
+                        <div class="p-2">
+                            <label class="form-label">Max Risk %</label>
+                            <input class="form-control" id="maxRiskPercentage" placeholder="0.00"
+                                   type="number" value="1">
+                        </div>
+                    </div>
+                    <div class="col sm">
+                        <div class="row p-2">
+                            <label class="form-label p-2">Amounts</label>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <label class="form-label">Profit </label>
+                                    <input class="form-control" disabled id="profitAmount"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <label class="form-label">Loss</label>
+                                    <input class="form-control" disabled id="lossAmount"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <label class="form-label">Risk : Reward</label>
+                                    <input class="form-control" disabled id="riskRewardRatio"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <label class="form-label">Position Size</label>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <Label class="form-label">Amount</label>
+                                    <input class="form-control" disabled id="positionSizeAmount"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <label class="form-label">Percentage</label>
+                                    <input class="form-control" disabled id="positionSizePercentage"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-1g-4">
+                                <div class="p-2">
+                                    <label class="form-label">Unit</label>
+                                    <input class="form-control" disabled id="positionSizeUnit"
+                                           placeholder="0.00" type="Number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end">
+                    <button class="bn btn-primary" onclick="calculate()" type="submit">Calculate</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="content">
+<script>
+function calculate(){
+var accountSize = parseFloat (document.getElementById("accountSize").value);
+var entryprice = parseFloat (document.getElementById("entryPrice").value);
+var stopLossPrice = parseFloat (document.getElementById("stopLossPrice").value);
+var takeProfitPrice = parseFloat (document.getElementById("takeProfitPrice" ).value);
+var maxiskPercentage = parseFloat (document.getElementById("maxRiskPercentage").value);
+var profitAmount =document.getElementById("profitAmount);
+var lossAmount = document.getElementById("lossAmount");
+var riskRewardRatio = document.getElementById("riskRewardRatio");
+var positionSizeAmount = document.getElementById("positionSizeAmount");
+var positionSizePercentage = document.getElementById("positionSizePercentage");
+var positionSizeUnit = document.getElementById("positionSizeUnit");
+var riskAmount = accountSize * (maRiskPercentage / 100);
+var potentialLossPerShare = riskAmount / entryPrice - stopLossPrice;
 
-    
-        <fieldset>
-          <legend>Personalia:</legend>
-          <label for="buyingPrice">Buying Price:</label><br>
-          <input type="text" id="buyingPrice" name="buyingPrice" value="0.00"><br>
-          <label for="sellingPrice">Selling Price:</label><br>
-          <input type="text" id="sellingPrice" name="sellingPrice" value="0.00"><br><br>
-          <input type="submit" value="Submit" onclick="calculate()">
-          <span id="difference"></span>
-        </fieldset>
-    
-</div>
-<div id="footer">
-version 0.1
-</div>
+positionSizeUnit.value = riskAmount / (entryprice - stopLossPrice);
+positionSizeAmount. value = (riskAmount / (entryPrice - stopLossPrice)) * entryPrice;
+positionSizePercentage. value = (((riskAmount / (entryPrice - stopLossPrice)) * entryPrice)/ accountSize) * 100;
+profitAmount.value = positionSizeUnit. value * (takeProfitPrice - entryPrice);
+lossAmount.value = positionSizeUnit. value * (entryPrice - stopLossPrice);
+riskRewardRatio.value = profitAmount. value / lossAmount. value;
+}s
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
 </body>
 </html>
