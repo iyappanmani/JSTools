@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" id="viewport" content="width=device-width" />
     <title>Swing Trading Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" rel="stylesheet">
 </head>
+
 <body data-bs-theme="dark">
 <div class="page p-4">
     <div class="page-wrapper">
@@ -13,8 +17,7 @@
                     <h2 class="page-title">
                         Calculator </h2>
                     <div class="page-pretitle">
-                        Position Sizing
-                    </div>
+                        Position Sizing </div>
                 </div>
             </div>
         </div>
@@ -36,7 +39,8 @@
                         </div>
                         <div class="p-2">
                             <label class="form-label">Stop Loss Price</label>
-                            <input class="form-control" id="stoplossPrice" placeholder="0.00" type="number" value="164">
+                            <input class="form-control" id="stopLossPrice" placeholder="0.00" type="number"
+                                   value="164">
                         </div>
                         <div class="p-2">
                             <label class="form-label">Take Profit Price</label>
@@ -45,92 +49,122 @@
                         </div>
                         <div class="p-2">
                             <label class="form-label">Max Risk %</label>
-                            <input class="form-control" id="maxRiskPercentage" placeholder="0.00"
-                                   type="number" value="1">
-                        </div>
-                    </div>
-                    <div class="col sm">
-                        <div class="row p-2">
-                            <label class="form-label p-2">Amounts</label>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Profit </label>
-                                    <input class="form-control" disabled id="profitAmount"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Loss</label>
-                                    <input class="form-control" disabled id="lossAmount"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Risk : Reward</label>
-                                    <input class="form-control" disabled id="riskRewardRatio"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row p-2">
-                            <label class="form-label">Position Size</label>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <Label class="form-label">Amount</label>
-                                    <input class="form-control" disabled id="positionSizeAmount"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Percentage</label>
-                                    <input class="form-control" disabled id="positionSizePercentage"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Unit</label>
-                                    <input class="form-control" disabled id="positionSizeUnit"
-                                           placeholder="0.00" type="Number">
-                                </div>
-                            </div>
+                            <input class="form-control" id="maxRiskPercentage" placeholder="0.00" type="number"
+                                   value="1">
                         </div>
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button class="bn btn-primary" onclick="calculate()" type="submit">Calculate</button>
+                    <a href="#" class="btn btn-primary ms-auto" onclick="calculate()">Calculate</a>
+
                 </div>
+            </div>
+            <br>
+            <div class="card">
+
+                <h3 class="card-header">
+                    Amounts </h3>
+                <div class="col ">
+                    <div class="row p-2">
+
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <label class="form-label">Profit </label>
+                                <input class="form-control" disabled id="profitAmount" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <label class="form-label">Loss</label>
+                                <input class="form-control" disabled id="lossAmount" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <label class="form-label">Risk : Reward</label>
+                                <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <label class="form-label">Position Size</label>
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <Label class="form-label">Amount</label>
+                                <input class="form-control" disabled id="positionSizeAmount" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <label class="form-label">Percentage</label>
+                                <input class="form-control" disabled id="positionSizePercentage" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-1g-4">
+                            <div class="p-2">
+                                <label class="form-label">Unit</label>
+                                <input class="form-control" disabled id="positionSizeUnit" placeholder="0.00"
+                                       type="Number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
 </div>
+</div>
 <script>
-function calculate(){
-var accountSize = parseFloat (document.getElementById("accountSize").value);
-var entryprice = parseFloat (document.getElementById("entryPrice").value);
-var stopLossPrice = parseFloat (document.getElementById("stopLossPrice").value);
-var takeProfitPrice = parseFloat (document.getElementById("takeProfitPrice" ).value);
-var maxiskPercentage = parseFloat (document.getElementById("maxRiskPercentage").value);
-var profitAmount =document.getElementById("profitAmount);
-var lossAmount = document.getElementById("lossAmount");
-var riskRewardRatio = document.getElementById("riskRewardRatio");
-var positionSizeAmount = document.getElementById("positionSizeAmount");
-var positionSizePercentage = document.getElementById("positionSizePercentage");
-var positionSizeUnit = document.getElementById("positionSizeUnit");
-var riskAmount = accountSize * (maRiskPercentage / 100);
-var potentialLossPerShare = riskAmount / entryPrice - stopLossPrice;
+        function calculate() {
+            var accountSize = parseFloat(document.getElementById("accountSize").value);
 
-positionSizeUnit.value = riskAmount / (entryprice - stopLossPrice);
-positionSizeAmount. value = (riskAmount / (entryPrice - stopLossPrice)) * entryPrice;
-positionSizePercentage. value = (((riskAmount / (entryPrice - stopLossPrice)) * entryPrice)/ accountSize) * 100;
-profitAmount.value = positionSizeUnit. value * (takeProfitPrice - entryPrice);
-lossAmount.value = positionSizeUnit. value * (entryPrice - stopLossPrice);
-riskRewardRatio.value = profitAmount. value / lossAmount. value;
-}s
-</script>
+            var entryPrice = parseFloat(document.getElementById("entryPrice").value);
+
+            var stopLossPrice = parseFloat(document.getElementById("stopLossPrice").value);
+
+            var takeProfitPrice = parseFloat(document.getElementById("takeProfitPrice").value);
+
+            var maxRiskPercentage = parseFloat(document.getElementById("maxRiskPercentage").value);
+
+            var profitAmount = document.getElementById("profitAmount");
+
+            var lossAmount = document.getElementById("lossAmount");
+
+            var riskRewardRatio = document.getElementById("riskRewardRatio");
+
+            var positionSizeAmount = document.getElementById("positionSizeAmount");
+
+            var positionSizePercentage = document.getElementById("positionSizePercentage");
+
+            var positionSizeUnit = document.getElementById("positionSizeUnit");
+
+            var riskAmount = accountSize * (maxRiskPercentage / 100);
+
+            var potentialLossPerShare = (riskAmount / entryPrice) - stopLossPrice;
+
+            positionSizeUnit.value = riskAmount / (entryPrice - stopLossPrice);
+
+            positionSizeAmount.innerHvaluetml = (riskAmount / (entryPrice - stopLossPrice)) * entryPrice;
+
+            positionSizePercentage.value = (((riskAmount / (entryPrice - stopLossPrice)) * entryPrice) / accountSize) * 100;
+
+            profitAmount.value = positionSizeUnit.value * (takeProfitPrice - entryPrice);
+
+            lossAmount.value = positionSizeUnit.value * (entryPrice - stopLossPrice);
+
+            riskRewardRatio.value = profitAmount.value / lossAmount.value;
+
+
+        }
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
 </body>
+
 </html>
