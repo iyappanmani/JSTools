@@ -23,108 +23,114 @@
             </div>
         </div>
         <div class="page-body">
-            <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                    <h3 class="card-header">
-                        Risk To Reward </h3>
-                    <div class="card-body p-1">
+            <div class="row row-deck row-cards">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                        <h3 class="card-header">
+                            Risk To Reward </h3>
+                        <div class="card-body p-1">
+                            <div class="col">
+                                <div class="p-2">
+                                    <label class="form-label">Account Size</label>
+                                    <input class="form-control" id="accountSize" placeholder="0.00" type="number"
+                                           value="15000">
+                                </div>
+                                <div class="p-2">
+                                    <label class="form-label">Entry Price</label>
+                                    <input class="form-control" id="entryPrice" placeholder="0.00" type="number"
+                                           value="170">
+                                </div>
+                                <div class="p-2">
+                                    <label class="form-label">Stop Loss Price</label>
+                                    <input class="form-control" id="stopLossPrice" placeholder="0.00" type="number"
+                                           value="164">
+                                </div>
+                                <div class="p-2">
+                                    <label class="form-label">Take Profit Price</label>
+                                    <input class="form-control" id="takeProfitPrice" placeholder="0.00" type="number"
+                                           value="182">
+                                </div>
+                                <div class="p-2">
+                                    <label class="form-label">Max Risk %</label>
+                                    <input class="form-control" id="maxRiskPercentage" placeholder="0.00" type="number"
+                                           value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <a href="#" class="btn btn-primary ms-auto" onclick="calculate()">Calculate</a>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <br>
+                    <div class="card">
+                        <h3 class="card-header">
+                            Amount </h3>
                         <div class="col">
-                            <div class="p-2">
-                                <label class="form-label">Account Size</label>
-                                <input class="form-control" id="accountSize" placeholder="0.00" type="number"
-                                       value="15000">
-                            </div>
-                            <div class="p-2">
-                                <label class="form-label">Entry Price</label>
-                                <input class="form-control" id="entryPrice" placeholder="0.00" type="number"
-                                       value="170">
-                            </div>
-                            <div class="p-2">
-                                <label class="form-label">Stop Loss Price</label>
-                                <input class="form-control" id="stopLossPrice" placeholder="0.00" type="number"
-                                       value="164">
-                            </div>
-                            <div class="p-2">
-                                <label class="form-label">Take Profit Price</label>
-                                <input class="form-control" id="takeProfitPrice" placeholder="0.00" type="number"
-                                       value="182">
-                            </div>
-                            <div class="p-2">
-                                <label class="form-label">Max Risk %</label>
-                                <input class="form-control" id="maxRiskPercentage" placeholder="0.00" type="number"
-                                       value="1">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer text-end">
-                        <a href="#" class="btn btn-primary ms-auto" onclick="calculate()">Calculate</a>
+                            <div class="row p-2">
 
-                    </div>
-                </div>
-                <br>
-                <div class="card">
-                    <h3 class="card-header">
-                        Amount </h3>
-                    <div class="col">
-                        <div class="row p-2">
-
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Profit </label>
-                                    <input class="form-control" disabled id="profitAmount" placeholder="0.00"
-                                           type="Number">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <label class="form-label">Profit </label>
+                                        <input class="form-control" disabled id="profitAmount" placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Loss</label>
-                                    <input class="form-control" disabled id="lossAmount" placeholder="0.00"
-                                           type="Number">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <label class="form-label">Loss</label>
+                                        <input class="form-control" disabled id="lossAmount" placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Risk : Reward</label>
-                                    <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
-                                           type="Number">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <label class="form-label">Risk : Reward</label>
+                                        <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br>
-                <div class="card">
-                    <h3 class="card-header">
-                        Position Size </h3>
-                    <div class="col">
-                        <div class="row p-2">
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <Label class="form-label">Amount</label>
-                                    <input class="form-control" disabled id="positionSizeAmount" placeholder="0.00"
-                                           type="Number">
+                <div class="col-sm-6 col-lg-3">ß
+                    <br>
+                    <div class="card">
+                        <h3 class="card-header">
+                            Position Size </h3>
+                        <div class="col">
+                            <div class="row p-2">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <Label class="form-label">Amount</label>
+                                        <input class="form-control" disabled id="positionSizeAmount" placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Percentage</label>
-                                    <input class="form-control" disabled id="positionSizePercentage"
-                                           placeholder="0.00"
-                                           type="Number">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <label class="form-label">Percentage</label>
+                                        <input class="form-control" disabled id="positionSizePercentage"
+                                               placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 col-1g-4">
-                                <div class="p-2">
-                                    <label class="form-label">Unit</label>
-                                    <input class="form-control" disabled id="positionSizeUnit" placeholder="0.00"
-                                           type="Number">
+                                <div class="col">
+                                    <div class="p-2">
+                                        <label class="form-label">Unit</label>
+                                        <input class="form-control" disabled id="positionSizeUnit" placeholder="0.00"
+                                               type="Number">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
@@ -171,6 +177,9 @@
 
 
         }
+
+
+
 
 
 
