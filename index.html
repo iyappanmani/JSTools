@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <meta charSet="utf-8" />
-    <meta name="viewport" id="viewport" content="width=device-width" />
+    <meta charSet="utf-8"/>
+    <meta name="viewport" id="viewport" content="width=device-width"/>
     <title>Swing Trading Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" rel="stylesheet">
 </head>
@@ -15,9 +15,10 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        Calculator </h2>
+                        Risk to Reward Ratio Calculator </h2>
                     <div class="page-pretitle">
-                        Position Sizing </div>
+                        Quick Position Sizing
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,12 +31,12 @@
                         <div class="p-2">
                             <label class="form-label">Account Size</label>
                             <input class="form-control" id="accountSize" placeholder="0.00" type="number"
-                                   type="Number" value="15000">
+                                   value="15000">
                         </div>
                         <div class="p-2">
                             <label class="form-label">Entry Price</label>
                             <input class="form-control" id="entryPrice" placeholder="0.00" type="number"
-                                   type="Number" value="170">
+                                   value="170">
                         </div>
                         <div class="p-2">
                             <label class="form-label">Stop Loss Price</label>
@@ -45,7 +46,7 @@
                         <div class="p-2">
                             <label class="form-label">Take Profit Price</label>
                             <input class="form-control" id="takeProfitPrice" placeholder="0.00" type="number"
-                                   type="Number" value="182">
+                                     value="182">
                         </div>
                         <div class="p-2">
                             <label class="form-label">Max Risk %</label>
@@ -61,10 +62,9 @@
             </div>
             <br>
             <div class="card">
-
                 <h3 class="card-header">
-                    Amounts </h3>
-                <div class="col ">
+                    Amount </h3>
+                <div class="col">
                     <div class="row p-2">
 
                         <div class="col-sm-4 col-1g-4">
@@ -89,8 +89,14 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+                <h3 class="card-header">
+                    Position Size </h3>
+                <div class="col">
                     <div class="row p-2">
-                        <label class="form-label">Position Size</label>
                         <div class="col-sm-4 col-1g-4">
                             <div class="p-2">
                                 <Label class="form-label">Amount</label>
@@ -101,7 +107,8 @@
                         <div class="col-sm-4 col-1g-4">
                             <div class="p-2">
                                 <label class="form-label">Percentage</label>
-                                <input class="form-control" disabled id="positionSizePercentage" placeholder="0.00"
+                                <input class="form-control" disabled id="positionSizePercentage"
+                                       placeholder="0.00"
                                        type="Number">
                             </div>
                         </div>
@@ -114,12 +121,10 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
+
     </div>
-</div>
 </div>
 <script>
         function calculate() {
@@ -163,7 +168,14 @@
 
 
         }
-    </script>
+
+
+
+
+
+
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
 </body>
 
