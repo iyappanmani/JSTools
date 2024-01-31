@@ -7,6 +7,17 @@
     <title>Position Size calculators</title>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css"
           rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+:root {
+  --tblr-font-sans-serif: "Roboto Condensed", sans-serif;
+}
+
+
+    </style>
+
 </head>
 <body data-bs-theme="dark">
 <div class="page">
@@ -38,7 +49,7 @@
         </div>
         <div class="page-body">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="cols">
                     <div class="card">
                         <h3 class="card-header">
                             TRADE DETAILS </h3>
@@ -56,20 +67,20 @@
                                     <div class="col">
                                         <label class="form-label required">ENTRY</label>
                                         <input class="form-control" id="entryPrice"
-                                               placeholder="0.00" type="Number">
+                                               placeholder="0.00" type="Number" value="100.00">
                                         <small class="form-hint">Price you can buy an asset.</small>
                                     </div>
                                     <div class="col">
                                         <label class="form-label required">STOP</Label>
                                         <input class="form-control" id="stopLossPrice" placeholder="0.00"
-                                               type="Number">
+                                               type="Number" value="95.00">
                                         <small class="form-hint">Price you will sell an asset with max
                                             loss. </small>
                                     </div>
                                     <div class="col">
                                         <label class="form-label required">EXIT</label>
                                         <input class="form-control" id="takeProfitPrice" placeholder="0.00"
-                                               type="Number">
+                                               type="Number" value="110.00">
                                         <small class="form-hint">Price you can sell an asset with profit.</small>
                                     </div>
                                 </div>
@@ -80,7 +91,6 @@
                                         <input class="form-control" id="maxRiskAmount"
                                                max="100" min="0" oninput="calculateMaxRiskPercentage ()"
                                                placeholder="0.00"
-                                               step="1"
                                                type="number">
                                         <small class="form-hint">Amount of your account that you can afford to
                                             lose.</small>
@@ -164,9 +174,9 @@
                                     <div class="col">
                                         <label class="form-label">RRR</Label>
                                         <div class="input-icon mb-3">
-                                        <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
-                                               type="Number">
-                                    </div>
+                                            <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
+                                                   type="Number">
+                                        </div>
                                         <small class="form-hint">Risk Reward Ratio</small>
                                     </div>
                                 </div>
@@ -212,9 +222,9 @@ function calculate() {
 
             var potentialLossPerShare = (riskAmount / entryPrice) - stopLossPrice;
 
-            positionSizeUnit.value = riskAmount / (entryPrice - stopLossPrice);
+            positionSizeUnit.value = Math.round(riskAmount / (entryPrice - stopLossPrice)).toFixed(2);
 
-            positionSizeAmount.value = (riskAmount / (entryPrice - stopLossPrice)) * entryPrice;
+            positionSizeAmount.value = Math.round((riskAmount / (entryPrice - stopLossPrice)) * entryPrice).toFixed(2);
 
             positionSizePercentage.value = Math.round((((riskAmount / (entryPrice - stopLossPrice)) * entryPrice) / accountSize) * 100).toFixed(2);
 
@@ -260,6 +270,8 @@ var maxRiskAmount = document.getElementById( 'maxRiskAmount');
 var accountSize = document.getElementById('accountSize');
 maxRiskPercentage.value = ((parseFloat(maxRiskAmount.value) / parseFloat (accountSize.value)) * 100);
 }
+
+
 
 
 
