@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charSet="utf-8"/>
-    <meta name="viewport" id="viewport" content="width=device-width"/>
-    <title>Position Size calculator</title>
-    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" rel="stylesheet">
+    <meta content="width=device-width" id="viewport"
+          name="viewport"/>
+    <title>Position Size calculators</title>
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css"
+          rel="stylesheet">
 </head>
-
 <body data-bs-theme="dark">
-<div class="page p-4">
-    <div class="page-wrapper">
+<div class="page">
+    <header class="navbar navbar-expand-md d-print-none">
         <div class="container-xl">
-            <div class="row g-2 align-items-center">
-                <div class="col">
-                    <h2 class="page-title">
-                        Position Size Calculator </h2>
-                    <div class="page-pretitle">
-                        Quick Position Sizing utility
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bleach-no-chlorine" width="24"
+                 height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"/>
+                <path d="M6.576 19l7.907 -13.733"/>
+                <path d="M11.719 19.014l5.346 -9.284"/>
+            </svg>
+        </div>
+    </header>
+    <div class="page-wrapper p-2">
+        <div class="page-header">
+            <div class="container-xl">
+                <div class="row p-2 align-items-center">
+                    <div class="col">
+                        <h2 class="page-title">
+                            Position Size Calculator </h2>
+                        <div class="page-pretitle">
+                            Quick Position Sizing utility
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="page-body">
-            <div class="row row-deck row-cards">
+            <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="card">
                         <h3 class="card-header">
@@ -31,112 +45,153 @@
                         <div class="card-body p-1">
                             <div class="col">
                                 <div class="p-2">
-                                    <label class="form-label">Account Size</label>
+                                    <label class="form-label required">Account Size</Label>
                                     <input class="form-control" id="accountSize" placeholder="0.00" type="number"
                                            value="15000">
+                                    <small class="form-hint">This is the total amount available to trade.</small>
                                 </div>
                                 <div class="p-2">
-                                    <label class="form-label">Entry Price</label>
-                                    <input class="form-control" id="entryPrice" placeholder="0.00" type="number"
-                                           value="170">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="form-label required">Entry </label>
+                                            <input class="form-control" id="entryPrice"
+                                                   placeholder="0.00" type="Number">
+                                            <small class="form-hint">Price you can buy an asset.</small>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label required">Stop</Label>
+                                            <input class="form-control" id="stopLossPrice" placeholder="0.00"
+                                                   type="Number">
+                                            <small class="form-hint">Price you will sell an asset with max
+                                                loss. </small>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label required">Exit</label>
+                                            <input class="form-control" id="takeProfitPrice" placeholder="0.00"
+                                                   type="Number">
+                                            <small class="form-hint">Price you can sell an asset with profit.</small>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="p-2">
-                                    <label class="form-label">Stop Loss Price</label>
-                                    <input class="form-control" id="stopLossPrice" placeholder="0.00" type="number"
-                                           value="164">
+                                    <label class="form-label required">Risk</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <input class="form-control" id="maxRiskAmount"
+                                                       max="100" min="0" oninput="calculateMaxRiskPercentage ()"
+                                                       placeholder="0.00"
+                                                       step="1"
+                                                       type="number"
+                                                >
+                                                <span class="input-group-text">$</span>
+                                                <small class="form-hint">Amount of your account that you can afford to
+                                                    lose.</small>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <input class="form-control" id="maxRiskPercentage"
+                                                       oninput="calculateMaxRiskAmount ()"
+                                                       placeholder="0.00"
+                                                       type="number">
+                                                <span class="input-group-text">%</span>
+                                                <small class="form-hint">Percentage of your account that you can afford
+                                                    to
+                                                    lose. </small>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="p-2">
-                                    <label class="form-label">Take Profit Price</label>
-                                    <input class="form-control" id="takeProfitPrice" placeholder="0.00" type="number"
-                                           value="182">
+                                    <div class="row ">
+                                        <div class="col">
+                                            <Label class="form-label">Amount</label>
+                                            <input class="form-control" disabled id="positionSizeAmount"
+                                                   placeholder="0.00" type="Number">
+                                            <small class="form-hint">Amount you should invest on this trade.</small>
+                                        </div>
+                                        <div class="col">
+                                            <Label class="form-label">Percentage</Label>
+                                            <input class="form-control" disabled id="positionSizePercentage"
+                                                   placeholder="0.00"
+                                                   type="Number">
+                                            <small class="form-hint">Percentage your account that you should invest on
+                                                this trade.</small>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">Unit (s) </Label>
+                                            <input
+                                                    class="form-control" disabled id="positionSizeUnit"
+                                                    placeholder="0.00" type="Number">
+                                            <small class="form-hint">Number of units you can buy.</small>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="p-2">
-                                    <label class="form-label">Max Risk %</label>
-                                    <input class="form-control" id="maxRiskPercentage" placeholder="0.00" type="number"
-                                           value="1">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="form-label">Profit</label>
+                                            <div class="input-icon mb-3">
+                                             <span class="input-icon-addon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     class="icon icon-tabler icon-tabler-arrow-up-right" width="24"
+                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                     stroke="green" fill="none" stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                    <path d="M17 7l-10 10"/>
+                                                    <path d="M8 7l9 0l0 9"/>
+                                                </svg>
+                                             </span>
+                                                <input class="form-control " disabled id="profitAmount"
+                                                       placeholder="0.00"
+                                                       type="Number">
+                                            </div>
+                                            <small class="form-hint">Amount you could gain from this trade.</small>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">Loss</label>
+                                            <div class="input-icon mb-3">
+                                            <span class="input-icon-addon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     class="icon icon-tabler icon-tabler-arrow-down-right" width="24"
+                                                     height="24"
+                                                     viewBox="0 0 24 24" stroke-width="2" stroke="red" fill="none"
+                                                     stroke-linecap="round"
+                                                     stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                    <path d="M7 7l10 10"/>
+                                                    <path d="M17 8l0 9l-9 0"/></svg>
+                                            </span>
+                                                <input class="form-control " disabled id="lossAmount" placeholder="0.00"
+                                                       type="Number">
+                                            </div>
+                                            <small class="form-hint">Amount you could loss from this trade. </small>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label">RRR</Label>
+                                            <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
+                                                   type="Number"><small class="form-hint">Risk Reward Ratio</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-end">
-                            <a href="#" class="btn btn-primary ms-auto" onclick="calculate()">Calculate</a>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <br>
-                    <div class="card">
-                        <h3 class="card-header">
-                            Amount </h3>
-                        <div class="col">
-                            <div class="row p-2">
-
-                                <div class="col">
-                                    <div class="p-2">
-                                        <label class="form-label">Profit </label>
-                                        <input class="form-control bg-color-green" disabled id="profitAmount" placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="p-2">
-                                        <label class="form-label">Loss</label>
-                                        <input class="form-control" disabled id="lossAmount" placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="p-2">
-                                        <label class="form-label">RRR</label>
-                                        <input class="form-control" disabled id="riskRewardRatio" placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <br>
-                    <div class="card">
-                        <h3 class="card-header">
-                            Position Size </h3>
-                        <div class="col">
-                            <div class="row p-2">
-                                <div class="col">
-                                    <div class="p-2">
-                                        <Label class="form-label">Amount</label>
-                                        <input class="form-control" disabled id="positionSizeAmount" placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="p-2">
-                                        <label class="form-label">Percentage</label>
-                                        <input class="form-control" disabled id="positionSizePercentage"
-                                               placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="p-2">
-                                        <label class="form-label">Unit(s)</label>
-                                        <input class="form-control" disabled id="positionSizeUnit" placeholder="0.00"
-                                               type="Number">
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="btn btn-primary ms-auto" href="#" onclick="calculate()">Calculate</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+
 <script>
-        function calculate() {
+function calculate() {
             var accountSize = parseFloat(document.getElementById("accountSize").value);
 
             var entryPrice = parseFloat(document.getElementById("entryPrice").value);
@@ -176,22 +231,44 @@
             riskRewardRatio.value = profitAmount.value / lossAmount.value;
 
 
-        }
+  }
 
 
+// Function to show the confirmation dialog
+function confirmReload() {
+// Using window.confirm to show a simple dialog with OK and Cancel buttons
+var userConfirmed = window.confirm( "Are you sure you want to reload the page? Any unsaved data will be lost.");
+// Check the user's choice
+if (userConfirmed) {
+// If the user clicks OK, reload the page
+location.reload();
+} else {
+// If the user clicks Cancel, do nothing or handle accordingly
+console.log("Page reload canceled by the user.");
+// Attach the function to the window's beforeunload event
 
+window.addEventListener ('beforeunload', function (event) {
+// Display the confirmation dialog when the user tries to leave the page
+event.returnValue = confirmReload;});
+}
+}
 
+function calculateMaxRiskAmount(){
+var maxRiskPercentage = document.getElementById( 'maxRiskPercentage');
+var maxRiskAmount = document.getElementById( 'maxRiskAmount');
+var accountSize = document.getElementById( 'accountSize');
+maxRiskAmount. value = ((parseFloat(maxRiskPercentage.value) / 100)) * (parseFloat(accountSize.value));
+}
 
-
-
-
-
-
-
+function calculateMaxRiskPercentage(){
+var maxRiskPercentage = document.getElementById('maxRiskPercentage');
+var maxRiskAmount = document.getElementById( 'maxRiskAmount');
+var accountSize = document.getElementById('accountSize');
+maxRiskPercentage.value = ((parseFloat(maxRiskAmount.value) / parseFloat (accountSize.value)) * 100);
+}
 
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
 </body>
-
 </html>
