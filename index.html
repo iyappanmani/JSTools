@@ -4,34 +4,38 @@
     <meta charSet="utf-8"/>
     <meta content="width=device-width" id="viewport"
           name="viewport"/>
-    <title>Position Size calculators</title>
+    <title>Position Size Calculators</title>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css"
           rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
     <style>
-:root {
-  --tblr-font-sans-serif: "Exo 2", sans-serif;
-}
-
-
-
+        :root {
+        --tblr-font-sans-serif: "Exo 2", sans-serif;
+        }
     </style>
-
 </head>
 <body data-bs-theme="dark">
 <div class="page">
     <header class="navbar navbar-expand-md d-print-none">
         <div class="container-xl">
+            <div class="col-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bleach-no-chlorine" width="24"
-                 height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                 stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"/>
-                <path d="M6.576 19l7.907 -13.733"/>
-                <path d="M11.719 19.014l5.346 -9.284"/>
-            </svg>
+
+                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"/>
+                    <path d="M6.576 19l7.907 -13.733"/>
+                    <path d="M11.719 19.014l5.346 -9.284"/>
+                </svg>
+            </div>
+            <div class="col">
+            Tools
+            </div>
+            <div class="col"></div>
         </div>
     </header>
     <div class="page-wrapper p-2">
@@ -56,7 +60,7 @@
                             TRADE DETAILS </h3>
                         <div class="card-body">
                             <div class="col">
-                                <div class="row">
+                                <div class="row p-1">
                                     <div class="col">
                                         <label class="form-label required">ACCOUNT SIZE</Label>
                                         <input class="form-control" id="accountSize" placeholder="0.00" type="number"
@@ -64,7 +68,7 @@
                                         <small class="form-hint">This is the total amount available to trade.</small>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row p-1">
                                     <div class="col">
                                         <label class="form-label required">ENTRY</label>
                                         <input class="form-control" id="entryPrice"
@@ -85,8 +89,7 @@
                                         <small class="form-hint">Price you can sell an asset with profit.</small>
                                     </div>
                                 </div>
-
-                                <div class="row">
+                                <div class="row p-1">
                                     <div class="col">
                                         <label class="form-label required">RISK $</label>
                                         <input class="form-control" id="maxRiskAmount"
@@ -107,8 +110,7 @@
                                     </div>
                                     <div class="col"></div>
                                 </div>
-
-                                <div class="row">
+                                <div class="row p-1">
                                     <div class="col">
                                         <Label class="form-label">AMOUNT</label>
                                         <input class="form-control" disabled id="positionSizeAmount"
@@ -131,8 +133,7 @@
                                         <small class="form-hint">Number of units you can buy.</small>
                                     </div>
                                 </div>
-
-                                <div class="row">
+                                <div class="row p-1">
                                     <div class="col">
                                         <label class="form-label">PROFIT</label>
                                         <div class="input-icon mb-3">
@@ -193,8 +194,6 @@
         </div>
     </div>
 </div>
-
-
 <script>
 function calculate() {
             var accountSize = parseFloat(document.getElementById("accountSize").value);
@@ -271,6 +270,7 @@ var maxRiskAmount = document.getElementById( 'maxRiskAmount');
 var accountSize = document.getElementById('accountSize');
 maxRiskPercentage.value = ((parseFloat(maxRiskAmount.value) / parseFloat (accountSize.value)) * 100);
 }
+
 
 
 
