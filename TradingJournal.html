@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charSet="utf-8"/>
+    <meta content="width=device-width" id="viewport"
+          name="viewport"/>
+    <title>Trading Journal</title>
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+        --tblr-font-sans-serif: "Exo 2", sans-serif;
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body data-bs-theme="dark">
+<div class="page">
+    <header class="navbar navbar-expand-md d-print-none">
+        <div class="container-xl">
+            <div class="col-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bleach-no-chlorine"
+                     width="24"
+
+                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"/>
+                    <path d="M6.576 19l7.907 -13.733"/>
+                    <path d="M11.719 19.014l5.346 -9.284"/>
+                </svg>
+            </div>
+            <div class="col">
+                Trading Tools
+            </div>
+            <div class="col"></div>
+        </div>
+    </header>
+    <div class="page-wrapper p-2">
+        <div class="page-header">
+            <div class="container-xl">
+                <div class="row p-2 align-items-center">
+                    <div class="col">
+                        <h2 class="page-title">
+                            Trading Journal </h2>
+                        <div class="page-pretitle">
+                            Dashboard
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="row">
+                <div class="cols">
+                    <div class="card">
+                        <h3 class="card-header">
+                            Trade Details </h3>
+                        <div class="card-body">
+                            <div class="col">
+                                <div class="row p-1">
+                                    <div class="col">
+                                        <label class="form-label required">Ticker</Label>
+                                        <input class="form-control" id="ticker" placeholder="AAPL" type="text">
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label required">Quantity</Label>
+                                        <input class="form-control" id="quantity" placeholder="0" type="number">
+                                    </div>
+                                    <div class="col">
+                                        <Label class="form-label">Amount</label>
+                                        <input class="form-control" disabled id="amount"
+                                               placeholder="0.00" type="Number">
+                                    </div>
+                                </div>
+
+                                <div class="row p-1">
+                                    <div class="col">
+                                        <label class="form-label required">Type</label>
+                                        <select class="form-select">
+                                            <option value="PUT">Long Buy</option>
+                                            <option value="HEAD">Long Sell</option>
+                                            <option value="DELETE">Short Buy</option>
+                                            <option value="PATCH">Short Sell</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label required">Date</label>
+                                        <div class="input-icon">
+                              <span class="input-icon-addon"><!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h16"></path><path d="M11 15h1"></path><path d="M12 15v3"></path></svg>
+                              </span>
+                                            <input class="form-control" placeholder="Select a date" id="datepicker-icon-prepend" value="2020-06-20">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row p-1">
+                                    <label class="form-label">Notes</label>
+                                    <textarea rows="5" class="form-control"
+                                              placeholder="Here can be your trade notes"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <a class="btn btn-primary ms-auto" href="#" onclick="sbumit()">Submit</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function calculate() {
+            var accountSize = parseFloat(document.getElementById("accountSize").value);
+
+            var entryPrice = parseFloat(document.getElementById("entryPrice").value);
+
+            var stopLossPrice = parseFloat(document.getElementById("stopLossPrice").value);
+
+            var takeProfitPrice = parseFloat(document.getElementById("takeProfitPrice").value);
+
+            var maxRiskPercentage = parseFloat(document.getElementById("maxRiskPercentage").value);
+
+            var profitAmount = document.getElementById("profitAmount");
+
+            var lossAmount = document.getElementById("lossAmount");
+
+            var riskRewardRatio = document.getElementById("riskRewardRatio");
+
+            var positionSizeAmount = document.getElementById("positionSizeAmount");
+
+            var positionSizePercentage = document.getElementById("positionSizePercentage");
+
+            var positionSizeUnit = document.getElementById("positionSizeUnit");
+
+            var riskAmount = accountSize * (maxRiskPercentage / 100);
+
+            var potentialLossPerShare = (riskAmount / entryPrice) - stopLossPrice;
+
+            positionSizeUnit.value = Math.round(riskAmount / (entryPrice - stopLossPrice)).toFixed(2);
+
+            positionSizeAmount.value = Math.round((riskAmount / (entryPrice - stopLossPrice)) * entryPrice).toFixed(2);
+
+            positionSizePercentage.value = Math.round((((riskAmount / (entryPrice - stopLossPrice)) * entryPrice) / accountSize) * 100).toFixed(2);
+
+            profitAmount.value = (Math.round(positionSizeUnit.value * (takeProfitPrice - entryPrice))).toFixed(2);
+
+            lossAmount.value = (Math.round(positionSizeUnit.value * (entryPrice - stopLossPrice))).toFixed(2);
+
+            riskRewardRatio.value = (Math.round(profitAmount.value / lossAmount.value)).toFixed(2);
+
+
+  }
+
+
+// Function to show the confirmation dialog
+function confirmReload() {
+// Using window.confirm to show a simple dialog with OK and Cancel buttons
+var userConfirmed = window.confirm( "Are you sure you want to reload the page? Any unsaved data will be lost.");
+// Check the user's choice
+if (userConfirmed) {
+// If the user clicks OK, reload the page
+location.reload();
+} else {
+// If the user clicks Cancel, do nothing or handle accordingly
+console.log("Page reload canceled by the user.");
+// Attach the function to the window's beforeunload event
+
+window.addEventListener ('beforeunload', function (event) {
+// Display the confirmation dialog when the user tries to leave the page
+event.returnValue = confirmReload;});
+}
+}
+
+function calculateMaxRiskAmount(){
+var maxRiskPercentage = document.getElementById( 'maxRiskPercentage');
+var maxRiskAmount = document.getElementById( 'maxRiskAmount');
+var accountSize = document.getElementById( 'accountSize');
+maxRiskAmount. value = ((parseFloat(maxRiskPercentage.value) / 100)) * (parseFloat(accountSize.value));
+}
+
+function calculateMaxRiskPercentage(){
+var maxRiskPercentage = document.getElementById('maxRiskPercentage');
+var maxRiskAmount = document.getElementById( 'maxRiskAmount');
+var accountSize = document.getElementById('accountSize');
+maxRiskPercentage.value = ((parseFloat(maxRiskAmount.value) / parseFloat (accountSize.value)) * 100);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+</body>
+</html>
